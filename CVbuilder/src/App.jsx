@@ -1,26 +1,17 @@
 import React from 'react'
+import {BrowserRouter,Route, Routes} from "react-router-dom"
 import { Page, Text, View, Document, StyleSheet,PDFDownloadLink } from '@react-pdf/renderer';
 import './App.css'
+import Dataform from "./components/Dataform.jsx"
 
 function App() {
 
   return (
-    <>
-    <PDFDownloadLink document = {<Document>
-          <Page size = "A4">
-            <View>
-              <Text>YEEnaw</Text>
-            </View>
-          </Page>
-          <Page size = "A4">
-            <View>
-              <Text>YEEYAW</Text>
-            </View>
-          </Page>
-        </Document>} filename= "Text">
-        Download Link
-      </PDFDownloadLink>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Dataform />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
