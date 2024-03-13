@@ -1,12 +1,12 @@
 import React from "react"
 
-export default function InputField({name,type,onChange,label}){
+export default function InputField({name,type,onChange,label,id}){
 
     let inputcomponent;
 
-    if(type=="text"){
+    if(type=="text"|| type === "number"|| type === "checkbox"){
         inputcomponent = (
-            <input placeholder={label} type={type} name={name} onChange ={onChange} />
+            <input placeholder={label} type={type} name={name} id={id} onChange ={onChange} />
         )
     } else if(type==="textarea"){
         inputcomponent = (
@@ -15,7 +15,7 @@ export default function InputField({name,type,onChange,label}){
     }
     
     return(
-        <label> {label} {label&&":"}<br />
+        <label> {label} {label&&":"}{!(type==="textarea") && <br />}
                 {inputcomponent}
         </label>
     )

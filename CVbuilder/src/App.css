@@ -1,19 +1,22 @@
-.form-general-info{
+
+.form-category-wrapper{
   display: flex;
   align-items: center;
   flex-direction: column;
   border: 1px solid black;
+  margin-bottom: 1rem;
 }
 
 .form-section-wrapper{
   display: flex;
   gap:1rem;
   margin-bottom: 2rem;
+  flex-wrap:wrap;
 }
 
 .form-section-wrapper>label>textarea{
-  width: 40rem;
-  height:12rem;
+  width: 40em;
+  height:8rem;
 }
 
 

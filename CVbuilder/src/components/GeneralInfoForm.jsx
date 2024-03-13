@@ -1,22 +1,12 @@
 import React from "react"
 import InputField from "./InputField"
+import {FunctionContext} from "../pages/Dataform"
 
-
-export default function Dataform() {
-    const [FormData,setFormData] = React.useState({})
-
-    function handleChange(event){
-        setFormData((prev)=>{
-            return {
-                ...prev,
-                [event.target.name]: event.target.value
-            }
-        })
-    }
-    console.log(FormData)
+export default function GeneralInfoForm({FormData}){
+    const{handleChange} = React.useContext(FunctionContext)
 
     return(
-        <div className="form-general-info"> 
+        <div className="form-category-wrapper"> 
             <h3>Name Information</h3>
             <div className = "form-section-wrapper">
                     <InputField 
@@ -65,7 +55,7 @@ export default function Dataform() {
                     value={FormData.address}
                 />
             </div>
-            <h3>Summary Statement</h3>
+            <h3>Profile</h3>
             <div className = "form-section-wrapper">
                 <InputField 
                     name = "summaryStatement"
