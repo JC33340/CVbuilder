@@ -4,7 +4,6 @@ import {FunctionContext} from "../pages/Dataform"
 
 export default function GeneralInfoForm({FormData}){
     const{handleChange} = React.useContext(FunctionContext)
-
     return(
         <div className="form-category-wrapper"> 
             <h3>Name Information</h3>
