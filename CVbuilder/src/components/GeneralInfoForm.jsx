@@ -1,9 +1,11 @@
 import React from "react"
 import InputField from "./InputField"
-import {FunctionContext} from "../pages/Dataform"
+import {FunctionContext,DataContext} from "../pages/Dataform"
 
-export default function GeneralInfoForm({FormData}){
+
+export default function GeneralInfoForm(){
     const{handleChange} = React.useContext(FunctionContext)
+    const {FormData} = React.useContext(DataContext)
     return(
         <div className="form-category-wrapper"> 
             <h3>Name Information</h3>

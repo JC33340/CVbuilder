@@ -1,8 +1,9 @@
 import React from 'react'
 import EducationInstituteForm from './EducationInstituteForm'
+import { DataContext } from '../pages/Dataform'
 
-export default function EducationInfo({setFormData}){
-
+export default function EducationInfo(){
+    const {FormData,setFormData} = React.useContext(DataContext)
     const [elementArr,setElementArr] = React.useState({})
     const [count,setCount] = React.useState(0)
 
@@ -25,6 +26,15 @@ export default function EducationInfo({setFormData}){
 
     function addInstitute(){
         const name = `institute${count}`
+        setFormData((prev)=>{
+            return{
+                ...prev,
+                education:{
+                ...prev.education,
+                    [name]:{}
+                }
+            }
+        })
         setElementArr((prev)=>{
             return {
                 ...prev,
@@ -35,18 +45,10 @@ export default function EducationInfo({setFormData}){
                  /> 
             }
         })
-        setFormData((prev)=>{
-            return{
-                ...prev,
-                education:{
-                ...prev.education,
-                    [name]:{}
-                }
-            }
-        })
         setCount((prev)=>prev+1)
         
     }
+
     const display = Object.entries(elementArr).map((item)=>item[1])
 
     return(

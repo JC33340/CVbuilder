@@ -1,10 +1,11 @@
 import React from 'react'
 import InputField from './InputField'
-import {FunctionContext} from "../pages/Dataform"
+import {FunctionContext,DataContext} from "../pages/Dataform"
 
 export default function EducationInstituteForm({institute,removeInstitute}){
 
     const {handleChangeEducation} = React.useContext(FunctionContext)
+    const{FormData} = React.useContext(DataContext)
 
     return(
         <>  
