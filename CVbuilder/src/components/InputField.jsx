@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function InputField({name,type,onChange,label,id}){
+export default function InputField({name,type,onChange=()=>{},label,id}){
 
     let inputcomponent;
 

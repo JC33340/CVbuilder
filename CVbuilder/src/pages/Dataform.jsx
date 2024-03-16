@@ -1,5 +1,5 @@
 import React from "react"
-import {Form, Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import GeneralInfoForm from "../components/GeneralInfoForm"
 import EducationInfo from "../components/EducationInfo"
 
@@ -36,20 +36,36 @@ export function Dataform() {
         })
     }
 
-    
-    const functionContext={handleChange:handleChange , handleChangeEducation:handleChangeEducation}
+    function initialiseForm(category,name){
+        setFormData((prev)=>{
+            return{
+                ...prev,
+                [category]:{
+                    ...prev[category],
+                    [name]:{}
+                }
+            }
+        })
+    }
+
+    function removeItemForm(category,name){
+        setFormData((prev)=>{
+            delete prev[category][name]
+            return{
+                ...prev
+            }
+        })
+    }
 
     return(
         <DataContext.Provider value = {{FormData:FormData,setFormData:setFormData}}>
-            <FunctionContext.Provider value ={functionContext} >
-                <>
+            <FunctionContext.Provider value ={{handleChange:handleChange , handleChangeEducation:handleChangeEducation,initialiseForm:initialiseForm,removeItemForm:removeItemForm}} >
                     <Link to="preview" >Preview</Link>
                     <GeneralInfoForm/>
                     <EducationInfo 
                         FormData={FormData}
                         setFormData={setFormData}
                     />
-                </>
             </FunctionContext.Provider>
         </DataContext.Provider>
     )

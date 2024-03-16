@@ -1,40 +1,36 @@
 import React from 'react'
 import EducationInstituteForm from './EducationInstituteForm'
-import { DataContext } from '../pages/Dataform'
+import {FunctionContext } from '../pages/Dataform'
+import useRenderDisplay from '../customHooks/useRenderDisplay'
 
 export default function EducationInfo(){
-    const {FormData,setFormData} = React.useContext(DataContext)
+    const {initialiseForm,removeItemForm} = React.useContext(FunctionContext)
+    /*
     const [elementArr,setElementArr] = React.useState({})
     const [count,setCount] = React.useState(0)
+    */
+
+    const [count,addDisplay,removeDisplay,display] = useRenderDisplay()
+
 
     function removeInstitute(event){
-        const id = event.target.id
-        setFormData((prev)=>{
-            delete prev.education[id]
-            return{
-                ...prev
-            }
-        })
-
+        const name = event.target.id
+        removeItemForm("education",name)
+        /*
         setElementArr((prev)=>{
-            delete prev[id]
+            delete prev[name]
             return{
                 ...prev
             }
         })
+        */
+       removeDisplay(name)
     }
 
     function addInstitute(){
         const name = `institute${count}`
-        setFormData((prev)=>{
-            return{
-                ...prev,
-                education:{
-                ...prev.education,
-                    [name]:{}
-                }
-            }
-        })
+        initialiseForm("education",name)
+        /*
         setElementArr((prev)=>{
             return {
                 ...prev,
@@ -46,10 +42,17 @@ export default function EducationInfo(){
             }
         })
         setCount((prev)=>prev+1)
-        
+        */
+        addDisplay(name,
+            <EducationInstituteForm
+                key = {name}
+                institute = {name}
+                removeInstitute={removeInstitute}
+             /> 
+        )
     }
 
-    const display = Object.entries(elementArr).map((item)=>item[1])
+   // const display = Object.entries(elementArr).map((item)=>item[1])
 
     return(
         <div className = "form-category-wrapper">
