@@ -1,15 +1,47 @@
 import React from 'react'
 import InputField from './InputField'
 import {FunctionContext,DataContext} from "../pages/Dataform"
+import useRenderDisplay from '../customHooks/useRenderDisplay'
 import GradeForm from './GradeForm'
 
 export default function EducationInstituteForm({institute,removeInstitute}){
 
     const {handleChangeEducation} = React.useContext(FunctionContext)
     const{FormData,setFormData} = React.useContext(DataContext)
+    const [count,addDisplay,removeDisplay,display] = useRenderDisplay()
     
     function addGrade(){
-        console.log("YES")
+        
+        const name = `grade${count}`
+        setFormData((prev)=>{
+            return{
+                ...prev,
+                education:{
+                    [institute]:{
+                        grades:{
+                            ...prev.education[institute].grades,
+                            [name]:{}
+                        }
+                    }
+                }
+            }
+        })
+        addDisplay(name,<GradeForm
+             grade ={name}
+             key={name}
+             removeGrade={removeGrade}
+             />)
+        
+    }
+
+    function removeGrade(name){
+        setFormData((prev)=>{
+            delete prev.education[institute].grades[name]
+            return{
+                ...prev
+            }
+        })
+        removeDisplay(name)
     }
 
     return(
@@ -22,7 +54,7 @@ export default function EducationInstituteForm({institute,removeInstitute}){
                     id={institute}
                     onChange={handleChangeEducation}
                 />
-                <div className = "three-column-grid">
+                <div className = "three-columns grid">
                     <InputField 
                         name="currentlyEnrolled"
                         label="Currently Enrolled"
@@ -58,6 +90,7 @@ export default function EducationInstituteForm({institute,removeInstitute}){
                 />
                 <div>
                     <h3>Grades:</h3>
+                    {display}
                     <button onClick={addGrade}>Add Grade</button>
                 </div>
             
