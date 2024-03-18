@@ -1,13 +1,11 @@
 import React from 'react'
 import InputField from './InputField'
 import {FunctionContext,DataContext} from "../pages/Dataform"
-import useRenderDisplay from '../customHooks/useRenderDisplay'
-import GradeForm from './GradeForm'
 
 export default function EducationInstituteForm({institute,removeInstitute}){
 
-    const {handleChangeEducation} = React.useContext(FunctionContext)
-    const{FormData,setFormData} = React.useContext(DataContext)
+    const {handleChangeNested} = React.useContext(FunctionContext)
+    const{FormData} = React.useContext(DataContext)
     
     return(
         <div className ="form-category-wrapper grade-wrapper">  
@@ -17,8 +15,9 @@ export default function EducationInstituteForm({institute,removeInstitute}){
                     label="Institute"
                     type="text"
                     id={institute}
-                    onChange={handleChangeEducation}
+                    onChange={handleChangeNested}
                     value={FormData.education[institute].institute}
+                    category='education'
                 />
                 <div className = "three-columns grid">
                     <InputField 
@@ -26,8 +25,9 @@ export default function EducationInstituteForm({institute,removeInstitute}){
                         label="Currently Enrolled"
                         type="checkbox"
                         id={institute}
-                        onChange={handleChangeEducation}
+                        onChange={handleChangeNested}
                         value={FormData.education[institute].currentlyEnrolled}
+                        category='education'
                     />
                     
                     <InputField 
@@ -35,8 +35,9 @@ export default function EducationInstituteForm({institute,removeInstitute}){
                         label="Start Year"
                         type="month"
                         id={institute}
-                        onChange={handleChangeEducation}
+                        onChange={handleChangeNested}
                         value={FormData.education[institute].startDate}
+                        category='education'
                     />
 
                 {!FormData.education?.[institute].currentlyEnrolled ? 
@@ -45,8 +46,9 @@ export default function EducationInstituteForm({institute,removeInstitute}){
                         label="End Year"
                         type="month"
                         id={institute}
-                        onChange={handleChangeEducation}
+                        onChange={handleChangeNested}
                         value={FormData.education[institute].endDate}
+                        category='education'
                     />
                     :null}
                 </div>
@@ -55,24 +57,27 @@ export default function EducationInstituteForm({institute,removeInstitute}){
                     label='Qualification'
                     type="text"
                     id={institute}
-                    onChange={handleChangeEducation}
+                    onChange={handleChangeNested}
                     value={FormData.education[institute].qualification}
+                    category='education'
                 />
                 <InputField
                     name="degreeOfStudy"
                     label='Degree of study'
                     type="text"
                     id={institute}
-                    onChange={handleChangeEducation}
+                    onChange={handleChangeNested}
                     value={FormData.education[institute].degreeOfStudy}
+                    category='education'
                 />
                 <InputField
                     name="overallGrade"
                     label='Overall Grade'
                     type="text"
                     id={institute}
-                    onChange={handleChangeEducation}
+                    onChange={handleChangeNested}
                     value={FormData.education[institute].overallGrade}
+                    category='education'
                 />
                 
             
