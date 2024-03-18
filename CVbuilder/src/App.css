@@ -27,6 +27,10 @@
   height: 1.2rem;
 }
 
+.grade-wrapper{
+  padding:1rem;
+}
+
 .grid{
   display: grid;
   width: 40rem;

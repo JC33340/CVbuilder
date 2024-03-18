@@ -8,69 +8,9 @@ export default function EducationInstituteForm({institute,removeInstitute}){
 
     const {handleChangeEducation} = React.useContext(FunctionContext)
     const{FormData,setFormData} = React.useContext(DataContext)
-    const [count,addDisplay,removeDisplay,display] = useRenderDisplay()
     
-    function addGrade(){
-        
-        const name = `grade${count}`
-        setFormData((prev)=>{
-            return{
-                ...prev,
-                education:{
-                    ...prev.education,
-                    [institute]:{
-                        grades:{
-                            ...prev.education[institute].grades,
-                            [name]:{}
-                        }
-                    }
-                }
-            }
-        })
-        addDisplay(name,<GradeForm
-             grade ={name}
-             key={name}
-             removeGrade={removeGrade}
-             handleChange={handleGradeChange}
-             institute={institute}
-             />)
-        
-    }
-
-    function removeGrade(name){
-        setFormData((prev)=>{
-            delete prev.education[institute].grades[name]
-            return{
-                ...prev
-            }
-        })
-        removeDisplay(name)
-    }
-
-    function handleGradeChange(event){
-        const {id,name,value} = event.target
-        setFormData((prev)=>{
-            return{
-                ...prev,
-                education:{
-                    ...prev.education,
-                    [institute]:{
-                        ...prev.education[institute],
-                        grades:{
-                            ...prev.education[institute].grades, 
-                            [id]:{
-                                ...prev.education[institute].grades[id],
-                                [name]:value
-                            }
-                        }
-                    }
-                }
-            }
-        })
-    }
-
     return(
-        <>  
+        <div className ="form-category-wrapper grade-wrapper">  
             <button onClick = {removeInstitute} id = {institute}>Remove Institute</button>
                 <InputField 
                     name="institute"
@@ -78,6 +18,7 @@ export default function EducationInstituteForm({institute,removeInstitute}){
                     type="text"
                     id={institute}
                     onChange={handleChangeEducation}
+                    value={FormData.education[institute].institute}
                 />
                 <div className = "three-columns grid">
                     <InputField 
@@ -86,39 +27,55 @@ export default function EducationInstituteForm({institute,removeInstitute}){
                         type="checkbox"
                         id={institute}
                         onChange={handleChangeEducation}
+                        value={FormData.education[institute].currentlyEnrolled}
                     />
                     
                     <InputField 
                         name="startDate"
                         label="Start Year"
-                        type="number"
+                        type="month"
                         id={institute}
                         onChange={handleChangeEducation}
+                        value={FormData.education[institute].startDate}
                     />
 
                 {!FormData.education?.[institute].currentlyEnrolled ? 
                     <InputField 
                         name="endDate"
                         label="End Year"
-                        type="number"
+                        type="month"
                         id={institute}
                         onChange={handleChangeEducation}
+                        value={FormData.education[institute].endDate}
                     />
                     :null}
                 </div>
                 <InputField
-                    name="qualificationLevel"
-                    label='Qualification Level'
+                    name="qualification"
+                    label='Qualification'
                     type="text"
                     id={institute}
                     onChange={handleChangeEducation}
+                    value={FormData.education[institute].qualification}
                 />
-                <div>
-                    <h3>Grades:</h3>
-                    {display}
-                    <button onClick={()=>addGrade(institute)}>Add Grade</button>
-                </div>
+                <InputField
+                    name="degreeOfStudy"
+                    label='Degree of study'
+                    type="text"
+                    id={institute}
+                    onChange={handleChangeEducation}
+                    value={FormData.education[institute].degreeOfStudy}
+                />
+                <InputField
+                    name="overallGrade"
+                    label='Overall Grade'
+                    type="text"
+                    id={institute}
+                    onChange={handleChangeEducation}
+                    value={FormData.education[institute].overallGrade}
+                />
+                
             
-        </>
+        </div>
     )
 }

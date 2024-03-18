@@ -1,16 +1,17 @@
 import React from "react"
 
-export default function InputField({name,type,onChange=()=>{},label,id}){
+export default function InputField({name,type,onChange=()=>{},label,id,value=""}){
 
     let inputcomponent;
 
-    if(type=="text"|| type === "number"|| type === "checkbox"){
+    if(type==="textarea"){
         inputcomponent = (
-            <input placeholder={label} type={type} name={name} id={id} onChange ={onChange} />
+            <textarea value = {value} maxLength={500} placeholder="Max length 500" name = {name} onChange = {onChange}></textarea>
         )
-    } else if(type==="textarea"){
+        
+    } else{
         inputcomponent = (
-            <textarea maxLength={500} placeholder="Max length 500" name = {name} onChange = {onChange}></textarea>
+            <input value={value} checked={value} placeholder={label} type={type} name={name} id={id} onChange ={onChange} />
         )
     }
     
