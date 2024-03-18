@@ -1,7 +1,7 @@
 import React from "react"
 import InputField from "./InputField"
 
-export default function GradeForm({grade,removeGrade}){
+export default function GradeForm({grade,removeGrade,handleChange}){
 
     return(
         <div className = "grid grade-columns">
@@ -10,6 +10,7 @@ export default function GradeForm({grade,removeGrade}){
                 name = "subject"
                 type="text"
                 label = "Subject"
+                onChange={handleChange}
             />
             <InputField 
                 id={grade}

@@ -17,6 +17,7 @@ export default function EducationInstituteForm({institute,removeInstitute}){
             return{
                 ...prev,
                 education:{
+                    ...prev.education,
                     [institute]:{
                         grades:{
                             ...prev.education[institute].grades,
@@ -30,6 +31,8 @@ export default function EducationInstituteForm({institute,removeInstitute}){
              grade ={name}
              key={name}
              removeGrade={removeGrade}
+             handleChange={handleGradeChange}
+             institute={institute}
              />)
         
     }
@@ -42,6 +45,28 @@ export default function EducationInstituteForm({institute,removeInstitute}){
             }
         })
         removeDisplay(name)
+    }
+
+    function handleGradeChange(event){
+        const {id,name,value} = event.target
+        setFormData((prev)=>{
+            return{
+                ...prev,
+                education:{
+                    ...prev.education,
+                    [institute]:{
+                        ...prev.education[institute],
+                        grades:{
+                            ...prev.education[institute].grades, 
+                            [id]:{
+                                ...prev.education[institute].grades[id],
+                                [name]:value
+                            }
+                        }
+                    }
+                }
+            }
+        })
     }
 
     return(
@@ -91,7 +116,7 @@ export default function EducationInstituteForm({institute,removeInstitute}){
                 <div>
                     <h3>Grades:</h3>
                     {display}
-                    <button onClick={addGrade}>Add Grade</button>
+                    <button onClick={()=>addGrade(institute)}>Add Grade</button>
                 </div>
             
         </>
