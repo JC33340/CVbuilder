@@ -58,6 +58,7 @@ export default function GeneralInfoForm(){
                     type = "textarea"
                     onChange={handleChange}
                     value={FormData.summaryStatement}
+                    maxLength={500}
                 />
         </div>
     )

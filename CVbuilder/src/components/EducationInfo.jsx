@@ -11,8 +11,9 @@ export default function EducationInfo(){
 
     function removeInstitute(event){
         const name = event.target.id
+        console.log(name)
         removeItemForm("education",name)
-       removeDisplay(name)
+        removeDisplay(name)
     }
 
     function addInstitute(){
@@ -23,6 +24,7 @@ export default function EducationInfo(){
                 key = {name}
                 institute = {name}
                 removeInstitute={removeInstitute}
+                category="education"
              /> 
         )
     }
