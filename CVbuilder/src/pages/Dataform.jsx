@@ -1,14 +1,15 @@
 import React from "react"
-import {Link} from 'react-router-dom'
+import {Link, useOutletContext} from 'react-router-dom'
 import GeneralInfoForm from "../components/GeneralInfoForm"
 import EducationInfo from "../components/EducationInfo"
 import WorkExperienceForm from "../components/WorkExperienceForm"
+import SkillsForm from "../components/SkillsForm"
 
 const FunctionContext = React.createContext()
 const DataContext = React.createContext()
 
 export function Dataform() {
-    const [FormData,setFormData] = React.useState({})
+    const {FormData,setFormData} = useOutletContext()
     console.log(FormData)
 
     function handleChange(event){
@@ -62,13 +63,10 @@ export function Dataform() {
     return(
         <DataContext.Provider value = {{FormData:FormData,setFormData:setFormData}}>
             <FunctionContext.Provider value ={{handleChange:handleChange , handleChangeNested:handleChangeNested,initialiseForm:initialiseForm,removeItemForm:removeItemForm}} >
-                    <Link to="preview" >Preview</Link>
                     <GeneralInfoForm/>
-                    <EducationInfo 
-                        FormData={FormData}
-                        setFormData={setFormData}
-                    />
+                    <EducationInfo />
                     <WorkExperienceForm />
+                    <SkillsForm />
             </FunctionContext.Provider>
         </DataContext.Provider>
     )
