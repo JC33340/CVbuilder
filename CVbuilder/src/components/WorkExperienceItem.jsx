@@ -76,7 +76,7 @@ export default function WorkExperienceItem({id,removeWorkExperience,category}){
                     type="textarea"
                     id={id}
                     onChange={handleChangeNested}
-                    value={FormData.workExperience[id].textarea}
+                    value={FormData.workExperience[id].description}
                     category={category}
                     maxLength={400}
                 />

@@ -6,7 +6,7 @@ export default function InputField({name,type,onChange=()=>{},label,id,value="",
 
     if(type==="textarea"){
         inputcomponent = (
-            <textarea data-category={category} value = {value} maxLength={maxLength} placeholder= {`Max Length ${maxLength}`} name = {name} onChange = {onChange}></textarea>
+            <textarea data-category={category} value = {value}  placeholder= {`Max Length ${maxLength}`} name = {name} id={id} onChange = {onChange}  maxLength={maxLength}  ></textarea>
         )
         
     } else{
