@@ -1,12 +1,33 @@
 import React from "react"
 import useRenderDisplay from '../customHooks/useRenderDisplay'
-import { FunctionContext } from '../pages/Dataform'
+import { FunctionContext,DataContext } from '../pages/Dataform'
 import IndividualSkillForm from "./IndividualSkillForm"
 
 export default function SkillsForm(){
 
-    const [count,addDisplay,removeDisplay,display] = useRenderDisplay()
+    const [count,addDisplay,removeDisplay,display,setExistingInfo] = useRenderDisplay()
     const {initialiseForm,removeItemForm} = React.useContext(FunctionContext)
+    const {FormData} = React.useContext(DataContext)
+
+    React.useEffect(()=>{
+        var existingData
+        var newDisplay
+        if(FormData.skills){
+            existingData = Object.entries(FormData.skills)
+        }
+        if (existingData!=""){
+            newDisplay = existingData.map((item)=>{
+                return [item[0],<IndividualSkillForm
+                    key = {item[0]}
+                    id = {item[0]}
+                    removeSkill={removeSkill}
+                    category="skills"
+                />]
+            })
+            setExistingInfo(newDisplay)
+        }
+        
+    },[])
 
     function addSkill(){
         const name = `skill${count}`

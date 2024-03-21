@@ -25,5 +25,10 @@ export default function useRenderDisplay(){
         })
     }
 
-    return [count,addDisplay,removeDisplay,display]
+    function setExistingInfo(newDisplay){
+        setElementArr(Object.fromEntries(newDisplay))
+        setCount(newDisplay.length)
+    }
+
+    return [count,addDisplay,removeDisplay,display,setExistingInfo]
 }
