@@ -1,16 +1,22 @@
 import React from 'react'
-import {Text,Document,Page,View,StyleSheet} from '@react-pdf/renderer'
+import {Text,Document,Page,View,StyleSheet,Font} from '@react-pdf/renderer'
 
 export default function PDF({FormData}){
 
     const styles = StyleSheet.create({
         page:{
-            padding:"20px"
+            padding:"20px",
+            fontFamily:"Helvetica"
         },
         contactWrapper:{
             fontSize:"10px",
             textAlign:"right"
         },
+        name:{
+            fontSize:"50px",
+            fontFamily:"Helvetica-Bold",
+            borderBottom:"2px solid black"
+        }
     })
 
     return(
@@ -23,7 +29,7 @@ export default function PDF({FormData}){
                     <Text>{FormData.address}</Text>
                 </View>
                 <View>
-                    <Text>{FormData.firstName} {FormData.lastName}</Text>
+                    <Text style={styles.name}>{FormData.firstName} {FormData.lastName}</Text>
                 </View>
             </Page>
         </Document>
