@@ -73,3 +73,6 @@ header{
   grid-template-columns: 45% 45% 10%;
 }
 
+.pdf-viewer-wrapper{
+  border:none;
+}
