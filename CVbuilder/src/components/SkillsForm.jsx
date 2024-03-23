@@ -43,6 +43,7 @@ export default function SkillsForm(){
     
     function removeSkill(event){
         const name = event.target.id
+        console.log("remove")
         removeItemForm("skills",name)
         removeDisplay(name)
     }

@@ -1,7 +1,7 @@
 import React from 'react'
 import {useOutletContext} from "react-router-dom"
 import{PDFViewer} from '@react-pdf/renderer'
-import PDF from '../components/PDF'
+import PDF from '../PDFcomponents/PDF'
 
 export default function Preview(){
 

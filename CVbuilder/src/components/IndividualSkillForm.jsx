@@ -9,6 +9,7 @@ export default function IndividualSkillForm({id,removeSkill,category}){
 
     return(
         <div className="form-category-wrapper nested-wrapper">
+            <button onClick={removeSkill} id = {id}>Remove Skill</button>
             <InputField 
                 name="skillName"
                 label="Skill"
