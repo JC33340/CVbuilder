@@ -8,10 +8,16 @@ export default function PDF({FormData}){
     
     const educationArr = Object.entries(FormData.education)
     const educationDisplay = educationArr.map((item)=>{
+        const info = item[1]
         return(
-            <Text>
-                {item[0]}
-            </Text>
+            <View style={styles.subSection}>
+                <View style={styles.dateHeader}>
+                    <Text><Text style={styles.boldText}>{info.qualification}{info.degreeOfStudy?" "+info.degreeOfStudy:""}</Text>{info.institute?", "+info.institute:""} <Text style={styles.italicText}>{`(${info.location})`}</Text></Text>
+                    <Text>{info.startDate} {info.currentlyEnrolled? '~ present':"~ "+info.endDate}</Text>
+                </View>
+                <Text>{info.additionalDetails}</Text>
+            </View>
+            
         )
     })
     

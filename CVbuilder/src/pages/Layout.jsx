@@ -18,7 +18,8 @@ export default function Layout(){
                 "endDate": "2023-09",
                 "qualification": "Msci",
                 "degreeOfStudy": "Pharmacology",
-                "overallGrade": "2:1"
+                "overallGrade": "2:1",
+                "additionalDetails": "-Joined the basket ball, badminton society\n-Head prefect"
             },
             "institute1": {
                 "institute": "Abingdon",
