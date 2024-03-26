@@ -10,17 +10,39 @@ export default function PDF({FormData}){
     const educationDisplay = educationArr.map((item)=>{
         const info = item[1]
         return(
-            <View style={styles.subSection}>
+            <View style={styles.section}>
                 <View style={styles.dateHeader}>
-                    <Text><Text style={styles.boldText}>{info.qualification}{info.degreeOfStudy?" "+info.degreeOfStudy:""}</Text>{info.institute?", "+info.institute:""} <Text style={styles.italicText}>{`(${info.location})`}</Text></Text>
+                    <View>
+                        <Text style={styles.boldText}>{info.qualification}{info.degreeOfStudy?" "+info.degreeOfStudy:""}</Text>
+                        <Text><Text>{info.institute}</Text><Text style={styles.obliqueText}> {`(${info.location})`}</Text></Text>
+                    </View>
                     <Text>{info.startDate} {info.currentlyEnrolled? '~ present':"~ "+info.endDate}</Text>
                 </View>
-                <Text>{info.additionalDetails}</Text>
+                <View style={styles.smallerText}>
+                    <Text>{info.overallGrade ? "- "+info.overallGrade:""}</Text>
+                    <Text>{info.additionalDetails}</Text>
+                </View>
             </View>
             
         )
     })
     
+    const experienceData = Object.entries(FormData.workExperience)
+    const experienceDisplay = experienceData.map((item)=>{
+        const info = item[1]
+        return(
+            <View style={styles.section}>
+                <View style={styles.dateHeader}>
+                    <View>
+                        <Text style={styles.boldText}>{info.role}</Text>
+                        <Text><Text>{info.company}</Text><Text style={styles.obliqueText}> {`(${info.location})`}</Text></Text>
+                    </View>
+                    <Text>{info.startDate} {info.currentlyWorking? '~ present':"~ "+info.endDate}</Text>
+                </View>
+                <Text style={styles.smallerText}>{info.description}</Text>
+            </View>
+        )
+    })
 
     return(
         <Document>
@@ -36,13 +58,17 @@ export default function PDF({FormData}){
                 </View>
                 {FormData.summaryStatement?
                 <View style={styles.section}>
-                    <View style={styles.headerWrapper}><Text style={styles.sectionHeader}>Profile</Text><View style={styles.headerLine} /></View>
+                    <View style={styles.headerWrapper}><Text>Profile</Text></View>
                     <Text  style={styles.sectionContent} >{FormData.summaryStatement}</Text>
                 </View>
                 :null}
-                <View style={styles.section}>
-                    <View style={styles.headerWrapper}><Text style={styles.sectionHeader}>Education</Text><View style={styles.headerLine} /></View>
+                <View>
+                    <View style={styles.headerWrapper}><Text>Education</Text></View>
                     {educationDisplay}
+                </View>
+                <View style={styles.section}>
+                    <View style={styles.headerWrapper}><Text>Experience</Text></View>
+                    {experienceDisplay}
                 </View>
                 
             </Page>

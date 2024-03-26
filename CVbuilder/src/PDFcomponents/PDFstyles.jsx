@@ -3,12 +3,19 @@ import { StyleSheet} from '@react-pdf/renderer'
 
 const PDFstyles = StyleSheet.create({
     page:{
-        padding:"15px",
+        padding:"15px 25px",
         fontFamily:"Helvetica",
         fontSize:"15px"
     },
     boldText:{
         fontFamily:"Helvetica-Bold"
+    },
+    obliqueText:{
+        fontFamily:"Helvetica-Oblique",
+        fontSize:"12px"
+    },
+    smallerText:{
+        fontSize:"12px"
     },
     contactWrapper:{
         fontSize:"10px",
@@ -20,21 +27,13 @@ const PDFstyles = StyleSheet.create({
         marginBottom:"20px"
     },
     section:{
-        marginBottom:"20px"
-    },
-    headerWrapper:{
-        display:"flex",
-        flexDirection:"row",
         marginBottom:"10px"
     },
-    headerLine:{
-        borderBottom:"1px solid black",
-        width:"100%"
-    },
-    sectionHeader:{
+    headerWrapper:{
+        marginBottom:"10px",
+        borderBottom:"2px solid black",
         fontFamily:"Helvetica-Bold",
-        fontSize:"20px",
-        marginRight:"10px",
+        fontSize:"20px"
     },
     sectionContent:{
         textAlign:"justify",
@@ -45,9 +44,6 @@ const PDFstyles = StyleSheet.create({
         justifyContent:"space-between",
         marginBottom:"3px"
     },
-    subSection:{
-        marginBottom:"10px"
-    }
 })
 
 export {PDFstyles}
