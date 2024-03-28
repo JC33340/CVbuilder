@@ -17,9 +17,8 @@ const PDFstyles = StyleSheet.create({
     smallerText:{
         fontSize:"12px"
     },
-    contactWrapper:{
-        fontSize:"10px",
-        textAlign:"right"
+    indentedText:{
+        marginLeft:"10px"
     },
     name:{
         fontSize:"50px",
@@ -35,15 +34,20 @@ const PDFstyles = StyleSheet.create({
         fontFamily:"Helvetica-Bold",
         fontSize:"20px"
     },
-    sectionContent:{
+    profileContent:{
         textAlign:"justify",
+        fontSize:"12px"
     },
-    dateHeader:{
+    splitHeader:{
         display:"flex",
         flexDirection:"row",
         justifyContent:"space-between",
         marginBottom:"3px"
     },
+    skillWrapper:{
+        fontSize:"12px",
+        marginBottom:"5px"
+    }
 })
 
 export {PDFstyles}
