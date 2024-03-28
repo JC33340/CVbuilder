@@ -15,7 +15,7 @@ export default function EducationInfo(){
         if(FormData.education){
             existingData = Object.entries(FormData.education)
         }
-        if (existingData!=""){
+        if (existingData!=null){
             newDisplay = existingData.map((item)=>{
                 return [item[0],<EducationInstituteForm
                     key = {item[0]}

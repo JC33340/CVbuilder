@@ -1,13 +1,19 @@
 import React from 'react'
 import {Text,Document,Page,View} from '@react-pdf/renderer'
 import {PDFstyles} from "./PDFstyles"
+import { Form } from 'react-router-dom'
 
 export default function PDF({FormData}){
 
     const styles = PDFstyles
+
+    var educationDisplay
+    var experienceDisplay
+    var skillsDisplay
     
-    const educationArr = Object.entries(FormData.education)
-    const educationDisplay = educationArr.map((item)=>{
+    if(FormData.education){
+        const educationArr = Object.entries(FormData.education)
+        educationDisplay = educationArr.map((item)=>{
         const info = item[1]
         return(
             <>
@@ -27,9 +33,11 @@ export default function PDF({FormData}){
             </>
         )
     })
+    }
     
-    const experienceData = Object.entries(FormData.workExperience)
-    const experienceDisplay = experienceData.map((item)=>{
+    if(FormData.workExperience){
+        const experienceData = Object.entries(FormData.workExperience)
+        experienceDisplay = experienceData.map((item)=>{
         const info = item[1]
         return(
             <View style={styles.section}>
@@ -44,17 +52,21 @@ export default function PDF({FormData}){
             </View>
         )
     })
-
-    const skillsData = Object.entries(FormData.skills)
-    const skillsDisplay = skillsData.map((item)=>{
-        const info = item[1]
-        return(
-            <View style={styles.skillWrapper}>
-                <Text>{info.skillName}</Text>
-                <Text style={styles.indentedText}>{info.additionalDetails}</Text>
-            </View>
-        )
-    })
+    }
+    
+    if (FormData.skills){
+        const skillsData = Object.entries(FormData.skills)
+        skillsDisplay = skillsData.map((item)=>{
+            const info = item[1]
+            return(
+                <View style={styles.skillWrapper}>
+                    <Text>{info.skillName}</Text>
+                    <Text style={styles.indentedText}>{info.additionalDetails}</Text>
+                </View>
+            )
+        })
+    }
+   
 
     return(
         <Document>
@@ -77,19 +89,25 @@ export default function PDF({FormData}){
                     <Text  style={styles.profileContent} >{FormData.summaryStatement}</Text>
                 </View>
                 :null}
-                <View>
-                    <View style={styles.headerWrapper}><Text>Education</Text></View>
-                    {educationDisplay}
-                </View>
-                <View style={styles.section}>
-                    <View style={styles.headerWrapper}><Text>Experience</Text></View>
-                    {experienceDisplay}
-                </View>
-                <View style={styles.section}>
-                    <View style={styles.headerWrapper}><Text>Skills</Text></View>
-                    {skillsDisplay}
-                </View>
-                
+                {educationDisplay && educationDisplay.length!=0?
+                    
+                    <View>
+                        <View style={styles.headerWrapper}><Text>Education</Text></View>
+                        {educationDisplay}
+                    </View>:null
+                }
+                {experienceDisplay && experienceDisplay.length!=0?
+                    <View style={styles.section}>
+                        <View style={styles.headerWrapper}><Text>Experience</Text></View>
+                        {experienceDisplay}
+                    </View>:null
+                }
+                {skillsDisplay && skillsDisplay.length!=0?
+                    <View style={styles.section}>
+                        <View style={styles.headerWrapper}><Text>Skills</Text></View>
+                        {skillsDisplay}
+                    </View>:null
+                }
             </Page>
         </Document>
     )

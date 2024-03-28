@@ -64,7 +64,7 @@ export default function Layout(){
         }
     }
 
-    const [FormData,setFormData] = React.useState(testObject)
+    const [FormData,setFormData] = React.useState({})
     return(
         <>
         <header>

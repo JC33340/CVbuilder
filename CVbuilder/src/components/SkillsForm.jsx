@@ -15,7 +15,7 @@ export default function SkillsForm(){
         if(FormData.skills){
             existingData = Object.entries(FormData.skills)
         }
-        if (existingData!=""){
+        if (existingData!=null){
             newDisplay = existingData.map((item)=>{
                 return [item[0],<IndividualSkillForm
                     key = {item[0]}

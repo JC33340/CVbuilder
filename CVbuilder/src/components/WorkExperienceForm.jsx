@@ -15,7 +15,7 @@ export default function WorkExperienceForm(){
         if(FormData.workExperience){
             existingData = Object.entries(FormData.workExperience)
         }
-        if (existingData!=""){
+        if (existingData!=null){
             newDisplay = existingData.map((item)=>{
                 return [item[0],<WorkExperienceItem
                     key = {item[0]}
