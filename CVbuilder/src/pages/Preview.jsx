@@ -9,7 +9,6 @@ export default function Preview(){
 
     return(
         <div className='form-category-wrapper pdf-viewer-wrapper'> 
-            <button onClick={()=>{console.log(FormData)}}>Click me!</button>
             <br />
             <PDFDownloadLink className='PDF-download-button' document={<PDF FormData={FormData} />}>Download</PDFDownloadLink>
             <PDFViewer style={{width:"80%",height:"40rem"}}>

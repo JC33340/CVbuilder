@@ -36,6 +36,18 @@ header{
   padding-bottom: 1rem;
 }
 
+.main{
+  border:none;
+}
+
+.section-title{
+  border: 3px solid black;
+  border-radius: 10px;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
 .form-section-wrapper{
   display: grid;
   justify-items: center;

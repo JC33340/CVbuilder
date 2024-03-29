@@ -50,8 +50,8 @@ export default function EducationInfo(){
     }
 
     return(
-        <div className = "form-category-wrapper">
-            <h3>Education Information</h3>
+        <div className = "form-category-wrapper main">
+            <div className='section-title'><h2>Education Information</h2></div>
             {display}
             <button onClick={addInstitute}>Add institute</button>
         </div>

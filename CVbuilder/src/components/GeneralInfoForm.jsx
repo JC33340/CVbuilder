@@ -7,7 +7,7 @@ export default function GeneralInfoForm(){
     const{handleChange} = React.useContext(FunctionContext)
     const {FormData} = React.useContext(DataContext)
     return(
-        <div className="form-category-wrapper"> 
+        <div className="form-category-wrapper main"> 
             <h3>Name Information</h3>
                     <InputField 
                         name ="firstName" 

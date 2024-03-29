@@ -49,8 +49,8 @@ export default function SkillsForm(){
     }
 
     return(
-        <div className="form-category-wrapper">
-            <h3>Skills information</h3>
+        <div className="form-category-wrapper main">
+            <div className="section-title"><h2>Skills information</h2></div>
             {display}
             <button onClick={addSkill}>Add Skill</button>
         </div>

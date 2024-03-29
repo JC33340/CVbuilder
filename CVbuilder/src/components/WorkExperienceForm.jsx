@@ -48,8 +48,8 @@ export default function WorkExperienceForm(){
     }
 
     return(
-        <div className ="form-category-wrapper">
-            <h3>Work Experience</h3>
+        <div className ="form-category-wrapper main">
+            <div className='section-title'><h2>Work Experience</h2></div>
             {display}
             <button onClick = {addWorkExperience}>Add Work Experience</button>
         </div>
