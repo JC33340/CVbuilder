@@ -48,14 +48,6 @@ header{
   margin-bottom: 1rem;
 }
 
-.form-section-wrapper{
-  display: grid;
-  justify-items: center;
-  gap:1rem;
-  margin-bottom: 2rem;
-  justify-content: center;
-}
-
 .form-category-wrapper>label>textarea{
   width: 40rem;
   height:8rem;
@@ -73,7 +65,7 @@ header{
 
 .grid{
   display: grid;
-  width: 40rem;
+  width: 100%;
   margin-bottom: 1rem;
 }
 
@@ -83,6 +75,17 @@ header{
 
 .grade-columns{
   grid-template-columns: 45% 45% 10%;
+}
+
+.preview-columns{
+  grid-template-columns: 20% 80%;
+}
+
+.grid-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .pdf-viewer-wrapper{

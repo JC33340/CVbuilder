@@ -1,11 +1,23 @@
 import React from 'react'
-import {Text,Document,Page,View} from '@react-pdf/renderer'
+import {Text,Document,Page,View,StyleSheet} from '@react-pdf/renderer'
 import {PDFstyles} from "./PDFstyles"
-import { Form } from 'react-router-dom'
 
-export default function PDF({FormData}){
+export default function PDF({FormData,sectionColor}){
 
     const styles = PDFstyles
+    const colorStyle = StyleSheet.create({
+        headerWrapper:{
+            color: sectionColor,
+            marginBottom:"10px",
+            fontFamily:"Helvetica-Bold",
+            fontSize:"20px",
+            borderBottom: "2px",
+            borderBottomColor:sectionColor
+        },
+        color:{
+            color:sectionColor
+        }
+    })
 
     var educationDisplay
     var experienceDisplay
@@ -66,13 +78,23 @@ export default function PDF({FormData}){
             )
         })
     }
+
+    function HeaderSection({children}){
+        return(
+            <View style={colorStyle.headerWrapper}>
+                <Text>
+                {children}
+                </Text>
+            </View>
+        )
+    }
    
 
     return(
         <Document>
             <Page style={styles.page}>
                 <View style={styles.splitHeader}>
-                    <View>
+                    <View style={colorStyle.color}>
                         <Text style={styles.name}>{FormData.firstName} {FormData.lastName}</Text>
                     </View>
                     <View style={styles.smallerText}>
@@ -85,26 +107,26 @@ export default function PDF({FormData}){
                 </View>
                 {FormData.summaryStatement?
                 <View style={styles.section}>
-                    <View style={styles.headerWrapper}><Text>Profile</Text></View>
+                    <HeaderSection>Profile</HeaderSection>
                     <Text  style={styles.profileContent} >{FormData.summaryStatement}</Text>
                 </View>
                 :null}
                 {educationDisplay && educationDisplay.length!=0?
                     
-                    <View>
-                        <View style={styles.headerWrapper}><Text>Education</Text></View>
+                    <View style={styles.section}>
+                        <HeaderSection>Education</HeaderSection>
                         {educationDisplay}
                     </View>:null
                 }
                 {experienceDisplay && experienceDisplay.length!=0?
                     <View style={styles.section}>
-                        <View style={styles.headerWrapper}><Text>Experience</Text></View>
+                        <HeaderSection>Experience</HeaderSection>
                         {experienceDisplay}
                     </View>:null
                 }
                 {skillsDisplay && skillsDisplay.length!=0?
                     <View style={styles.section}>
-                        <View style={styles.headerWrapper}><Text>Skills</Text></View>
+                        <HeaderSection>Skills</HeaderSection>
                         {skillsDisplay}
                     </View>:null
                 }

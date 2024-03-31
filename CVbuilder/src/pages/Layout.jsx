@@ -2,69 +2,51 @@ import React from 'react'
 import {Outlet,NavLink} from 'react-router-dom'
 
 export default function Layout(){
-    const testObject={
-        "firstName": "Jason",
-        "lastName": "Chan",
-        "email": "jasonchanhw0531@gmail.com",
-        "contactNumber": "7366329945",
+
+    const testObj = {
+        "firstName": "Louise ",
+        "lastName": "Dong ",
+        "email": "louise.dong5396@gmail.com ",
+        "contactNumber": "07786914876",
         "linkedin": "www.linkdin.com/random-shit",
-        "address": "London",
-        "summaryStatement": "Highly adaptable, fast learning and motivated recent pharmacology graduate. Currently self-learning Python and JavaScript, creating projects to improve my skills. Seeking an entry-level software engineering role with opportunities to further learn and develop skills for my professional career. ",
+        "address": "London ",
+        "summaryStatement": "Jason's girlfriend bing bong bing bong weeeeeeeeeeeeeeeeeeeeeee",
         "education": {
             "institute0": {
-                "institute": "UCL",
-                "location": "London",
-                "startDate": "2018-09",
-                "endDate": "2023-09",
-                "qualification": "Msci",
-                "degreeOfStudy": "Pharmacology",
-                "overallGrade": "2:1"
-            },
-            "institute1": {
-                "institute": "Abingdon",
-                "location": "Oxfordshire",
-                "startDate": "2016-09",
-                "endDate": "2018-09",
-                "qualification": "A-levels",
-                "overallGrade": "A*,A,B"
+                "institute": "Queen Mary university of London ",
+                "location": "London ",
+                "currentlyEnrolled": true,
+                "startDate": "2021-09",
+                "qualification": "BSc",
+                "degreeOfStudy": "Biochemistry ",
+                "overallGrade": "1",
+                "additionalDetails": "bing bong bang booo pookie wookie princess "
             }
         },
         "workExperience": {
             "workExperience0": {
-                "company": "Note Education Consultancy ",
-                "location": "Hong Kong",
-                "role": "Tutor",
-                "startDate": "2016-06",
-                "endDate": "2018-06",
-                "description": "- Preparation and planning for lessons in advance\n- Engaging with students ensuring they are focused on tasks\n- Created and enhanced various aspects of company website\n- Aided in achieving 100% client entry rate into top HK schools\n- Advised on and managed clients school applications \n"
-            },
-            "workExperience1": {
-                "company": "Koya",
-                "location": "London",
+                "company": "efitter ",
+                "location": "London ",
+                "role": "Fashion business development intern",
                 "currentlyWorking": true,
-                "role": "Waiter",
-                "startDate": "2022-12",
-                "description": "- Ensure quality customer satisfaction \n- Resolve spontaneous issues throughout the shift\n- Maintain efficient service\n"
+                "startDate": "2024-03",
+                "description": "weeee weee we we we we we we we w eeeeeeeeeee"
             }
         },
         "skills": {
             "skill0": {
-                "skillName": "Self-learning coding",
-                "additionalDetails": "- Understanding of python, JS\n- In particular libraries such as React and Django\n- Built personal projects:\n - Weather app\n - CVbuilder\n - Chat appplication\n"
+                "skillName": "chinese mandarin ",
+                "additionalDetails": "fluent "
             },
             "skill1": {
-                "skillName": "Fluency in Mandarin, English"
-            },
-            "skill2": {
-                "skillName": "Native Cantonese speaker"
-            },
-            "skill3": {
-                "skillName": "Proficiency in Microsoft word, Excel, Powerpoint"
+                "skillName": "cantonese ",
+                "additionalDetails": "fluent "
             }
         }
     }
 
     const [FormData,setFormData] = React.useState({})
+
     return(
         <>
         <header>
@@ -76,22 +58,3 @@ export default function Layout(){
     )
 }
 
-const education = {"education": {
-    "institute0": {
-        "institute": "UCL",
-        "location": "London",
-        "startDate": "2018-09",
-        "endDate": "2023-09",
-        "qualification": "Msci",
-        "degreeOfStudy": "Pharmacology",
-        "overallGrade": "2:1"
-    },
-    "institute1": {
-        "institute": "Abingdon",
-        "location": "Oxfordshire",
-        "startDate": "2016-09",
-        "endDate": "2018-09",
-        "qualification": "A-levels",
-        "overallGrade": "A*,A,B"
-    }
-}}

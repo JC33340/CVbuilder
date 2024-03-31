@@ -30,13 +30,13 @@ const PDFstyles = StyleSheet.create({
     },
     headerWrapper:{
         marginBottom:"10px",
-        borderBottom:"2px solid black",
         fontFamily:"Helvetica-Bold",
         fontSize:"20px"
     },
     profileContent:{
         textAlign:"justify",
-        fontSize:"12px"
+        fontSize:"12px",
+        marginBottom:"10px"
     },
     splitHeader:{
         display:"flex",
