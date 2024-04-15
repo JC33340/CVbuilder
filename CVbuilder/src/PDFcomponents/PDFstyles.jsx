@@ -5,37 +5,32 @@ const PDFstyles = StyleSheet.create({
     page:{
         padding:"15px 25px",
         fontFamily:"Helvetica",
-        fontSize:"15px"
+        fontSize:"11px"
     },
     boldText:{
         fontFamily:"Helvetica-Bold"
     },
     obliqueText:{
         fontFamily:"Helvetica-Oblique",
-        fontSize:"12px"
+        fontSize:"11px"
     },
     smallerText:{
-        fontSize:"12px"
+        fontSize:"11px"
     },
     indentedText:{
-        marginLeft:"10px"
+        marginLeft:"11px"
     },
     name:{
-        fontSize:"50px",
+        fontSize:"40px",
         fontFamily:"Helvetica-Bold",
         marginBottom:"20px"
     },
     section:{
-        marginBottom:"10px"
-    },
-    headerWrapper:{
-        marginBottom:"10px",
-        fontFamily:"Helvetica-Bold",
-        fontSize:"20px"
+        marginBottom:"5px"
     },
     profileContent:{
         textAlign:"justify",
-        fontSize:"12px",
+        fontSize:"11px",
         marginBottom:"10px"
     },
     splitHeader:{
@@ -45,7 +40,7 @@ const PDFstyles = StyleSheet.create({
         marginBottom:"3px"
     },
     skillWrapper:{
-        fontSize:"12px",
+        fontSize:"11px",
         marginBottom:"5px"
     }
 })

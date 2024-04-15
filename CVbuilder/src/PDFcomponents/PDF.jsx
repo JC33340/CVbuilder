@@ -8,9 +8,9 @@ export default function PDF({FormData,sectionColor}){
     const colorStyle = StyleSheet.create({
         headerWrapper:{
             color: sectionColor,
-            marginBottom:"10px",
+            marginBottom:"5px",
             fontFamily:"Helvetica-Bold",
-            fontSize:"20px",
+            fontSize:"17px",
             borderBottom: "2px",
             borderBottomColor:sectionColor
         },
@@ -32,7 +32,7 @@ export default function PDF({FormData,sectionColor}){
             <View style={styles.section}>
                 <View style={styles.splitHeader}>
                     <View>
-                        <Text style={styles.boldText}>{info.qualification}{info.degreeOfStudy?" "+info.degreeOfStudy:""}</Text>
+                        <Text><Text style={styles.boldText}>{info.qualification}</Text> - {info.degreeOfStudy?" "+info.degreeOfStudy:""}</Text>
                         <Text><Text>{info.institute}</Text><Text style={styles.obliqueText}> {`(${info.location})`}</Text></Text>
                     </View>
                     <Text style={styles.smallerText}>{info.startDate} {info.currentlyEnrolled? '~ present':"~ "+info.endDate}</Text>

@@ -96,7 +96,7 @@ export default function EducationInstituteForm({institute,removeInstitute,catego
                     onChange={handleChangeNested}
                     value={FormData.education[institute].additionalDetails}
                     category={category}
-                    maxLength={100}
+                    maxLength={400}
                 />
                 
             
