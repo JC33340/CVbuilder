@@ -26,7 +26,6 @@ header{
   color: white;
   background-color: black;
 }
-
 .form-category-wrapper{
   display: flex;
   align-items: center;
@@ -38,6 +37,7 @@ header{
 
 .main{
   border:none;
+  padding:25px;
 }
 
 .section-title{
@@ -51,12 +51,24 @@ header{
 .form-category-wrapper>label>textarea{
   width: 40rem;
   height:8rem;
+  border-radius:10px;
 }
 
 .form-category-wrapper>label>input{
   width: 40rem;
   margin-bottom:1rem;
   height: 1.2rem;
+  border-radius:10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .form-category-wrapper>label>input {
+    width:15rem;
+  }
+
+  .form-category-wrapper>label>textarea{
+    width:15rem;
+  }
 }
 
 .nested-wrapper{
@@ -70,7 +82,7 @@ header{
 }
 
 .three-columns{
-  grid-template-columns: 30% 30% 30%;
+  grid-template-columns: auto auto auto;
 }
 
 .grade-columns{
@@ -81,6 +93,20 @@ header{
   grid-template-columns: 20% 80%;
 }
 
+@media only screen and (max-width: 600px) {
+  .three-columns{
+    grid-template-columns:auto;
+  }
+
+}
+@media only screen and (max-width: 1024px){
+  .preview-columns{
+      grid-template-columns: auto;
+      gap:10px
+  }
+}
+
+
 .grid-item{
   display: flex;
   flex-direction: column;
@@ -90,6 +116,7 @@ header{
 
 .pdf-viewer-wrapper{
   border:none;
+  padding: 0 20px;
 }
 
 .PDF-download-button{
