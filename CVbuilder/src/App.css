@@ -1,3 +1,7 @@
+body{
+  background-color:#BDAB98
+}
+
 header{
   display: flex;
   justify-content: center;
